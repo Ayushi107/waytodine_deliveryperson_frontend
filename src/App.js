@@ -4,7 +4,6 @@ import Login from './components/Login';
 import DeliveryPanel from './components/DeliveryPanel';
 import Register from './components/Register';
 import Profile from './components/Profile';
-import NewMapCompenent from './components/NewMapCompenent';
 const App = () => {
   return (
     <Routes>
@@ -12,7 +11,6 @@ const App = () => {
       <Route path="/delivery-panel" element={<DeliveryPanel />} />
       <Route path="/register" element={<Register />} />
       <Route path="/profile" element={<Profile />} />
-      <Route path="/mapcomp" element={<NewMapCompenent />} />
 
 
     </Routes>
