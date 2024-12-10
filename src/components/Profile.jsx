@@ -20,6 +20,8 @@ const Profile = () => {
     if (storedDriver) {
       try {
         const parsedDriver = JSON.parse(storedDriver);
+        console.log(parsedDriver);
+        
         setDriver(parsedDriver);
       } catch (e) {
         console.error("Error parsing driver data:", e);
@@ -37,7 +39,7 @@ const Profile = () => {
       const response = await axios.post(`${API_BASE_URL}Driver/get-profile`, {
         DriverId: driver.deliveryPersonId//driver.deliveryPersonId, // Replace with the actual driver ID dynamically
       });
-    //   console.log(response.data);
+      console.log(driver.deliveryPersonId,"id");
       
       setProfileData(response.data);
       setAvailability(response.data.isAvailable);
@@ -48,8 +50,11 @@ const Profile = () => {
     }
   };
   useEffect(() => {
-    fetchProfile();
-  }, []);
+    // Fetch profile only when the driver is set
+    if (driver && driver.deliveryPersonId) {
+      fetchProfile();
+    }
+  }, [driver]); 
 
   const toggleAvailability = async () => {
     try {
