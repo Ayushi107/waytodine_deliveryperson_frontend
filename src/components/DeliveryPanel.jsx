@@ -314,7 +314,7 @@ const DeliveryPanel = () => {
                           <td>{order.customer?.firstName + order.customer.lastName || "Unknown"}</td>
                           <td>{order.customer.location}</td>
                           <td>{order.totalAmount}</td>
-                          <td>{order.orderStatus === 1 ? "Placed" : order.orderStatus === 2 ? "Preparing" : order.orderStatus === 3 ? "Out for Delivery" : order.orderStatus === 4 ? "Delivered" : "unkonwn"}
+                          <td>{order.orderStatus === 1 ? "Placed" : order.orderStatus === 2 ? "Preparing" : order.orderStatus === 3 ? "Ready for Delivery" : order.orderStatus === 4 ? "Delivered" : "unkonwn"}
                           </td>
                           <td>
                             <div className="d-flex align-items-center gap-2">
