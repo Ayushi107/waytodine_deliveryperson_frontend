@@ -323,7 +323,7 @@ const DeliveryPanel = () => {
                                 <Button
                                   variant="success"
                                   onClick={() => handleAcceptOrder(order)}
-                                  disabled={order.orderStatus === 3 || order.orderStatus === 4}
+                                  disabled={order.isAccept}
                                 >
                                   Accept Order
                                 </Button>
