@@ -317,11 +317,25 @@ const DeliveryPanel = () => {
                           <td>{order.orderStatus === 1 ? "Placed" : order.orderStatus === 2 ? "Preparing" : order.orderStatus === 3 ? "Out for Delivery" : order.orderStatus === 4 ? "Delivered" : "unkonwn"}
                           </td>
                           <td>
-                            {(orderStatus === "delivered" || orderStatus === "assigned") && (
-                              <Button variant="info" onClick={() => handleOrderClick(order)}>
-                                View Details
-                              </Button>
-                            )}
+                            <div className="d-flex align-items-center gap-2">
+                              {/* Accept Order Button */}
+                              {orderStatus === "assigned" && (
+                                <Button
+                                  variant="success"
+                                  onClick={() => handleAcceptOrder(order)}
+                                  disabled={order.orderStatus === 3 || order.orderStatus === 4}
+                                >
+                                  Accept Order
+                                </Button>
+                              )}
+
+                              {/* View Details Button */}
+                              {(orderStatus === "delivered" || orderStatus === "assigned") && (
+                                <Button variant="info" onClick={() => handleOrderClick(order)}>
+                                  View Details
+                                </Button>
+                              )}
+                            </div>
                             <td>
                               {orderStatus === "accepted" && (
                                 <div className="d-flex align-items-center">
