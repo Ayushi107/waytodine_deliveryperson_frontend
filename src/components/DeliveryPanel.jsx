@@ -142,7 +142,7 @@ const DeliveryPanel = () => {
     setModalShow(false);
   };
 
-  const handleAcceptOrder = () => {
+  const handleAcceptOrder = (selectedOrder) => {
     console.log('Order accepted:', selectedOrder);
     AcceptOrDeclineOrder(selectedOrder.orderId, driver.deliveryPersonId, true)// replace the id with session id
     setModalShow(false);
